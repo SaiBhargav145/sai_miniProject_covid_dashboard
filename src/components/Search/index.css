@@ -1,0 +1,53 @@
+.list-cont {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.list-cont-el {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.hd {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #64748b;
+}
+
+.btn-cont {
+  display: flex;
+  justify-self: flex-end;
+  align-items: flex-end;
+  align-self: flex-end;
+  text-align: end;
+  align-content: flex-end;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+.bttn {
+  background-color: rgba(28, 212, 212, 0.16);
+  border-radius: 4px;
+  align-self: flex-end;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  padding: 4px 6px;
+  color: #facc15;
+  border: 0px;
+
+  width: 79px;
+  height: 32px;
+  left: 1029px;
+  top: 300px;
+  cursor: pointer;
+}
+.icon {
+  color: #facc15;
+  font-size: 15px;
+}

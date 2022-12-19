@@ -1,0 +1,30 @@
+.seach-icon {
+  font-size: 20px;
+  color: #94a3b8;
+  padding-right: 6px;
+}
+.search-ip {
+  border: 0px;
+  background-color: #2f2f43;
+  border-color: #2f2f43;
+  color: #94a3b8;
+  padding: 10px;
+  border-style: none;
+  height: 3vh;
+  width: 10vw;
+  border-top-color: #2f2f43;
+  outline: none;
+}
+.search-bar {
+  background: #2f2f43;
+  border-radius: 8px;
+  padding: 10px;
+  width: 50vw;
+  display: flex;
+}
+.search-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,9 +1,13 @@
-import './App.css'
+import {Component} from 'react'
+import {BsSearch} from 'react-icons/bs'
+import './index.css'
+import Header from '../Header'
 
-import Home from './components/Home'
-//  import Footer from './components/Footer'
+//  import Header from '../Header'
 
-/*  const statesList = [
+import Search from '../Search'
+
+const statesList = [
   {
     state_code: 'AN',
     state_name: 'Andaman and Nicobar Islands',
@@ -148,12 +152,69 @@ import Home from './components/Home'
     state_code: 'WB',
     state_name: 'West Bengal',
   },
-]   */
+]
 
-const App = () => (
-  <div>
-    <Home />
-  </div>
-)
+class Home extends Component {
+  state = {
+    searchInput: '',
+    filteredList: [],
+  }
 
-export default App
+  onClickSearch = event => {
+    const searchItem = event.target.value
+    const filteringResult = statesList.filter(eachItem =>
+      eachItem.state_name.toLowerCase().includes(searchItem.toLowerCase()),
+    )
+
+    this.setState({
+      searchInput: event.target.value,
+      filteredList: filteringResult,
+    })
+  }
+
+  searchListItems = () => {
+    const {filteredList} = this.state
+    return (
+      <ul>
+        {filteredList.map(eachItem => (
+          <Search
+            key={eachItem.state_code}
+            stateCode={eachItem.state_code}
+            stateName={eachItem.state_name}
+            id={eachItem.state_code}
+          />
+        ))}
+      </ul>
+    )
+  }
+
+  render() {
+    const {searchInput, filteredList} = this.state
+
+    const showingItem =
+      filteredList.length === 0 ? null : this.searchListItems()
+
+    return (
+      <>
+        <Header />
+        <div>
+          <div className="search-cont">
+            <div className="search-bar">
+              <BsSearch className="seach-icon" />
+              <input
+                type="search"
+                onChange={this.onClickSearch}
+                value={searchInput}
+                placeholder="Enter The State"
+                className="search-ip"
+              />
+            </div>
+            {searchInput.length > 0 ? showingItem : ''}
+          </div>
+        </div>
+      </>
+    )
+  }
+}
+
+export default Home

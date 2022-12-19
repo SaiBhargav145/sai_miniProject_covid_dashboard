@@ -1,0 +1,6 @@
+.main-cont {
+  background-color: #161625;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
