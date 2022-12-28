@@ -1,7 +1,9 @@
 import './App.css'
 
 import Home from './components/Home'
-//  import Footer from './components/Footer'
+// import NotFound from './components/NotFound'
+// import Faqs from './components/Faqs'
+// import About from './components/About'
 
 /*  const statesList = [
   {

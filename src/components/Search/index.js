@@ -5,14 +5,14 @@ const Search = props => {
   const {stateCode, stateName} = props
 
   return (
-    <li className="list-cont">
-      <div className="list-cont-el">
-        <h1 className="hd">{stateName}</h1>
+    <li className="sc-list-cont">
+      <div className="sc-list-cont-el">
+        <h1 className="sc-hd">{stateName}</h1>
       </div>
-      <div className="btn-cont">
-        <button type="button" className="bttn">
+      <div className="sc-btn-cont">
+        <button type="button" className="sc-bttn">
           {stateCode}
-          <BiChevronRightSquare className="icon" />
+          <BiChevronRightSquare className="sc-icon" />
         </button>
       </div>
     </li>

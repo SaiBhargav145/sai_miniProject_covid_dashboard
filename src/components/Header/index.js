@@ -20,10 +20,10 @@ class Header extends Component {
     return (
       <div className={popup}>
         <div>
-          <ul className="list-page list-cont">
-            <li className="home">Home</li>
-            <li className="vaccine">Vaccination</li>
-            <li className="about">About</li>
+          <ul className="hd-list-page list-cont">
+            <li className="hd-home">Home</li>
+            <li className="hd-vaccine">Vaccination</li>
+            <li className="hd-about">About</li>
           </ul>
         </div>
         <div>
@@ -39,37 +39,37 @@ class Header extends Component {
     return (
       <>
         <div>
-          <nav className="nav-bar">
-            <div className="main-cont">
+          <nav className="hd-nav-bar">
+            <div className="hd-main-cont">
               <div>
-                <h1 className="logo">
-                  COVID19<span className="ind">INDIA</span>
+                <h1 className="hd-logo">
+                  COVID19<span className="hd-ind">INDIA</span>
                 </h1>
               </div>
 
               <div className="">
-                <ul className="list-page list-cont">
-                  <li className="Home">Home</li>
-                  <li className="vaccine">Vaccination</li>
-                  <li className="about">About</li>
+                <ul className="hd-list-page hd-list-cont">
+                  <li className="hd-Home">Home</li>
+                  <li className="hd-vaccine">Vaccination</li>
+                  <li className="hd-about">About</li>
                 </ul>
               </div>
             </div>
-            <div>
-              <div className="mobile-cont">
-                <h1 className="logo">
-                  COVID19<span className="ind">INDIA</span>
-                </h1>
-                <button
-                  onClick={this.onClicklogo}
-                  type="button"
-                  className="btn"
-                >
-                  <BiListPlus className="logo-nav" />
-                </button>
-              </div>
-            </div>
           </nav>
+          <div>
+            <div className="hd-mobile-cont">
+              <h1 className="hd-logo">
+                COVID19<span className="hd-ind">INDIA</span>
+              </h1>
+              <button
+                onClick={this.onClicklogo}
+                type="button"
+                className="hd-btn"
+              >
+                <BiListPlus className="hd-logo-nav" />
+              </button>
+            </div>
+          </div>
         </div>
       </>
     )

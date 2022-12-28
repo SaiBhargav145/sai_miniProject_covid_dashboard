@@ -1,0 +1,52 @@
+.nf-main-cont {
+  background-color: black;
+  background-size: cover;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.nf-img {
+  height: 220px;
+  width: 250px;
+}
+.nf-hd {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 48px;
+
+  text-align: center;
+
+  color: #cbd5e1;
+}
+.nf-para {
+  width: 483px;
+  height: 64px;
+  left: 479px;
+  top: 626px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+
+  text-align: center;
+
+  color: #94a3b8;
+}
+.nf-btn {
+  padding: 12px 24px;
+  gap: 8px;
+  color: #ffffff;
+  font-size: 12px;
+
+  width: 88px;
+  height: 48px;
+
+  background-color: #2563eb;
+  border-radius: 12px;
+}

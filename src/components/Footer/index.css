@@ -1,6 +1,47 @@
-.main-cont {
-  background-color: #161625;
+.ft-main-cont {
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  background-color: #161625;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+.ff-sec-cont {
+  align-items: center;
+}
+.ft-hd {
+  font-family: 'Bree Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+  color: #f8fafc;
+}
+.ft-sp {
+  color: #3b82f6;
+}
+.ft-p {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #94a3b8;
+}
+.ft-icon {
+  left: 40.76%;
+  right: 56.32%;
+  top: 95.21%;
+  bottom: 3.27%;
+  color: #cbd5e1;
+  font-size: 35px;
+}
+.ft-icon-cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }

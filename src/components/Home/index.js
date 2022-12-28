@@ -2,8 +2,10 @@ import {Component} from 'react'
 import {BsSearch} from 'react-icons/bs'
 import './index.css'
 import Header from '../Header'
+import NationalCases from '../NationalCases'
 
 //  import Header from '../Header'
+import Footer from '../Footer'
 
 import Search from '../Search'
 
@@ -158,6 +160,87 @@ class Home extends Component {
   state = {
     searchInput: '',
     filteredList: [],
+    allConfirmedCases: 0,
+    allActiveCases: 0,
+    allDeceasedCases: 0,
+    allRecoveredCases: 0,
+    stateCovidData: [],
+  }
+
+  componentDidMount() {
+    this.getTheTotalNoCases()
+  }
+
+  getTheTotalNoCases = async () => {
+    const url = 'https://apis.ccbp.in/covid19-state-wise-data'
+    const options = {
+      method: 'GET',
+    }
+    const response = await fetch(url, options)
+    if (response.ok === true) {
+      console.log(response)
+      const data = await response.json()
+
+      console.log(data)
+      // national data
+      let allNationConfirmedCases = 0
+      let allNationActiveCases = 0
+      let allNationDeceasedCases = 0
+      let allNationRecoveredCases = 0
+
+      statesList.forEach(element => {
+        if (data[element.state_code]) {
+          const {total} = data[element.state_code]
+          allNationConfirmedCases += total.confirmed ? total.confirmed : 0
+          allNationDeceasedCases += total.deceased ? total.deceased : 0
+          allNationRecoveredCases += total.recovered ? total.recovered : 0
+        }
+      })
+      allNationActiveCases =
+        allNationConfirmedCases -
+        (allNationDeceasedCases + allNationRecoveredCases)
+      console.log(allNationConfirmedCases)
+      console.log(allNationDeceasedCases)
+      console.log(allNationRecoveredCases)
+      console.log(allNationActiveCases)
+
+      //   state wise data
+      /*  Object.keys(data)
+          .filter(stateItem => stateItem === eachItem.state_code)
+          .map(each => data[each].total.confirmed)  
+          https://apis.ccbp.in/covid19-state-wise-data */
+
+      const stateWiseData = statesList.map(eachItem => ({
+        stateName: eachItem.state_name,
+        statesCode: eachItem.state_code,
+        confirmedCases: Object.keys(data)
+          .filter(eachState => eachState === eachItem.state_code)
+          .map(eachData => data[eachData].total.confirmed),
+        recoveredCases: Object.keys(data)
+          .filter(eachState => eachState === eachItem.state_code)
+          .map(eachData => data[eachData].total.recovered),
+        deceasedCases: Object.keys(data)
+          .filter(eachState => eachState === eachItem.state_code)
+          .map(eachData => data[eachData].total.deceased),
+        statePopulation: Object.keys(data)
+          .filter(eachState => eachState === eachItem.state_code)
+          .map(eachData => data[eachData].meta.population),
+        stateActive: Object.keys(data)
+          .filter(eachState => eachState === eachItem.state_code)
+          .map(
+            eachData =>
+              data[eachData].total.confirmed -
+              (data[eachData].total.deceased + data[eachData].total.recovered),
+          ),
+      }))
+      this.setState({
+        allConfirmedCases: allNationConfirmedCases,
+        allActiveCases: allNationActiveCases,
+        allDeceasedCases: allNationDeceasedCases,
+        allRecoveredCases: allNationRecoveredCases,
+        stateCovidData: stateWiseData,
+      })
+    }
   }
 
   onClickSearch = event => {
@@ -188,8 +271,26 @@ class Home extends Component {
     )
   }
 
+  allTheNationalCasesData = () => {
+    const {
+      allActiveCases,
+      allConfirmedCases,
+      allDeceasedCases,
+      allRecoveredCases,
+    } = this.state
+    return (
+      <NationalCases
+        active={allActiveCases}
+        confirmed={allConfirmedCases}
+        deceased={allDeceasedCases}
+        recovered={allRecoveredCases}
+      />
+    )
+  }
+
   render() {
-    const {searchInput, filteredList} = this.state
+    const {searchInput, filteredList, stateCovidData} = this.state
+    console.log(stateCovidData)
 
     const showingItem =
       filteredList.length === 0 ? null : this.searchListItems()
@@ -197,7 +298,8 @@ class Home extends Component {
     return (
       <>
         <Header />
-        <div>
+        <div className="Home-main-cont">
+          {/* Search Bar */}
           <div className="search-cont">
             <div className="search-bar">
               <BsSearch className="seach-icon" />
@@ -211,7 +313,11 @@ class Home extends Component {
             </div>
             {searchInput.length > 0 ? showingItem : ''}
           </div>
+          {/* All the states   */}
+          {this.allTheNationalCasesData()}
         </div>
+
+        <Footer />
       </>
     )
   }

@@ -1,22 +1,22 @@
-.nav-bar {
+.hd-nav-bar {
   width: 100vw;
   height: 80px;
   left: 0px;
   top: 0px;
   background: #1e1e30;
 }
-.main-cont {
+.hd-main-cont {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.list-cont {
+.hd-list-cont {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   padding: 20px;
 }
-.logo {
+.hd-logo {
   width: 130px;
   height: 24px;
   left: 150px;
@@ -33,10 +33,10 @@
   color: #f8fafc;
   padding: 25px;
 }
-.ind {
+.hd-ind {
   color: #3b82f6;
 }
-.Home {
+.hd-Home {
   width: 43px;
   height: 24px;
   left: 1024px;
@@ -51,7 +51,7 @@
   line-height: 24px;
   color: #f8fafc;
 }
-.vaccine {
+.hd-vaccine {
   width: 84px;
   height: 24px;
   left: 1115px;
@@ -67,7 +67,7 @@
 
   color: #94a3b8;
 }
-.about {
+.hd-about {
   width: 43px;
   height: 24px;
   left: 1247px;
@@ -82,10 +82,10 @@
 
   color: #94a3b8;
 }
-.list-page {
+.hd-list-page {
   list-style-type: none;
 }
-.mobile-cont {
+.hd-mobile-cont {
   display: none;
 }
 /*@media (max-width: 767px) {

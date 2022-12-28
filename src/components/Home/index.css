@@ -27,4 +27,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 25px;
+}
+.searchLi {
+  background-color: #2f2f43;
+}
+.Home-main-cont {
+  background-color: #161625;
+  background-size: cover;
 }
